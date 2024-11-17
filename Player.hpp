@@ -9,7 +9,7 @@ class Player{
     public:
 
         Player(){
-            player_texture.loadFromFile("PlayerTexture.png");
+            player_texture.loadFromFile("PlayerTextures/PlayerTextureIdle.png");
             player_sprite.setPosition(100.0f, 100.0f);
             player_sprite.setTexture(player_texture);
             Game::getEntityVector().push_back(player_sprite);
@@ -31,5 +31,6 @@ class Player{
 
             //std::cout << "Player Position: " << player_pos.x << ", " << player_pos.y << std::endl;
         }
+
          
 };

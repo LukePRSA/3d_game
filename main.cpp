@@ -34,13 +34,13 @@ int main(){
         game.trackPlayer(player.getPlayerSprite().getPosition());
 
         //draw
+        game.getWindow().draw(game.getBackgroundSprite());
         game.getWindow().setView(game.getCameraView());
         game.drawEntities();
 
         
         //misc testing
 
-        std::cout << " " <<player.getPlayerSprite().getPosition().x;
 
         // Display the window's content on the screen
         game.getWindow().display();

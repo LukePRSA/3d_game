@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <Projectile.hpp>
 #ifndef GAME_H 
 #define GAME_H
 
@@ -12,15 +13,22 @@ class Game{
         sf::View cameraView;
         sf::Vector2f starting_pos = sf::Vector2f(100.0f,100.0f);
         static std::vector<sf::Sprite> entities;  // Declare static member
+        static std::vector<projectile> projectiles;
+        
+        sf::Sprite backgroundSprite;
+        sf::Texture backgroundTexture;
 
     public:
 
-        Game() : window(sf::VideoMode(1500,900), "2D Game"){
+        Game() : window(sf::VideoMode(1920,1080), "2D Game"){
 
             window.setFramerateLimit(60);
 
             cameraView.setSize(window.getSize().x, window.getSize().y);  // Set to screen dimensions
             cameraView.setCenter(starting_pos);    
+
+            backgroundTexture.loadFromFile("tempsaver.jpg");
+            backgroundSprite.setTexture(backgroundTexture);
         }
 
         sf::RenderWindow& getWindow(){
@@ -51,6 +59,14 @@ class Game{
         }
         static std::vector<sf::Sprite>& getEntityVector(){
             return entities;
+        }
+
+        static std::vector<projectile>& getProjectileVector(){
+            return projectiles;
+        }
+
+        sf::Sprite getBackgroundSprite(){
+            return backgroundSprite;
         }
 
 
